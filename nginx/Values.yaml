@@ -1,0 +1,7 @@
+Deployment:
+  replicas: 5
+  image: nginx:stable-perl
+Service:
+  type: LoadBalancer
+  port: 80
+  targetPort: 80

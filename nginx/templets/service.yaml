@@ -1,0 +1,17 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: nginx
+  labels:
+    app: nginx
+    tier: frontend
+    project: helm-expense
+spec:
+  type: {{ .Values.Service.type }}
+  selector:
+    app: nginx
+    tier: frontend
+    project: helm-expense
+  ports:
+    - port: {{ .Values.Service.port }}
+      targetPort: {{ .Values.Service.targetPort }}
