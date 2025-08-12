@@ -1,6 +1,6 @@
 Deployment:
-  replicas: 5
-  image: nginx:stable-perl
+  replicas: 2
+  image: nginx:stable-bookworm-perl
 Service:
   type: LoadBalancer
   port: 80
