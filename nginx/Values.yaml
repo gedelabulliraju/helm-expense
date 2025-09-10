@@ -1,6 +1,7 @@
 Deployment:
+  namespace: expense
   replicas: 2
-  image: nginx:stable-bookworm-perl
+  image: nginx:latest
 Service:
   type: LoadBalancer
   port: 80

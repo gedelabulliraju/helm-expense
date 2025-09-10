@@ -2,6 +2,7 @@ kind: Deployment
 apiversion: apps/v1
 metadata:
   name: nginx
+  namespace: {{ .Values.namespace }}
   labels:
     app: nginx
     tier: frontend
