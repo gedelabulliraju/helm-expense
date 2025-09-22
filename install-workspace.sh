@@ -63,6 +63,7 @@ else
     echo "✅ helm installed successfully."
 fi
 
+
 # ============================
 # Install k9s
 # ============================
@@ -70,13 +71,29 @@ if command_exists k9s; then
     echo "✅ k9s is already installed: $(k9s version | head -n1)"
 else
     echo "Installing k9s..."
-    curl -sS https://webinstall.dev/k9s | bash
-    if [ -f ~/.local/bin/k9s ]; then
-        sudo mv ~/.local/bin/k9s /usr/bin/k9s
+    
+    # Download and install using webinstall.dev
+    curl -sSL https://webinstall.dev/k9s | bash
+
+    # Move binary to /usr/local/bin for system-wide access
+    if [ -f "$HOME/.local/bin/k9s" ]; then
+        sudo mv "$HOME/.local/bin/k9s" /usr/local/bin/k9s
+        echo "✅ k9s moved to /usr/local/bin"
     fi
-    echo "✅ k9s installed successfully."
+
+    # Verify installation
+    if command_exists k9s; then
+        echo "✅ k9s installed successfully: $(k9s version | head -n1)"
+    else
+        echo "❌ k9s installation failed"
+        exit 1
+    fi
 fi
 
+# ============================
+# Usage tip
+# ============================
+echo "You can now run 'k9s' as normal user. Do NOT use 'sudo k9s'."
 # ============================
 # Final Verification
 # ============================
