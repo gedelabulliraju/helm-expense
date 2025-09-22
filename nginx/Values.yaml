@@ -1,8 +1,8 @@
-Deployment:
+deployment:
   namespace: expense
   replicas: 2
   image: nginx:latest
-Service:
+service:
   type: LoadBalancer
   port: 80
   targetPort: 80
