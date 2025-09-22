@@ -2,13 +2,13 @@ kind: Deployment
 apiversion: apps/v1
 metadata:
   name: nginx
-  namespace: {{ .Values.namespace }}
+  namespace: {{ .Values.deployment.namespace }}
   labels:
     app: nginx
     tier: frontend
     project: helm-expense
 spec:
-  replicas: {{ .Values.Deployment.replicas }}
+  replicas: {{ .Values.deployment.replicas }}
   selector:
     matchLabels:
       app: nginx
@@ -23,6 +23,6 @@ spec:
     spec:
       containers:
         - name: nginx
-          image: {{ .Values.Deployment.image }}
+          image: {{ .Values.deployment.image }}
           ports:
             - containerPort: 80
