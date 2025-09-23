@@ -67,9 +67,6 @@ fi
 # ==========================
 # Install k9s
 # ==========================
-if command_exists k9s; then
-    echo "✅ k9s is already installed: $(k9s version | head -n1)"
-else
     echo "Installing k9s..."
     
     # Download and install using webinstall.dev
@@ -84,9 +81,9 @@ else
     fi
 fi
 
-# ============================
+# ===========================
 # Usage tip
-# ============================
+# ===========================
 echo "You can now run 'k9s' as normal user. Do NOT use 'sudo k9s'."
 # ============================
 # Final Verification
