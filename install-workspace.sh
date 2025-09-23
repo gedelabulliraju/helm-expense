@@ -75,12 +75,6 @@ else
     # Download and install using webinstall.dev
     curl -sSL https://webinstall.dev/k9s | bash
 
-    # Move binary to /usr/local/bin for system-wide access
-    if [ -f "$HOME/.local/bin/k9s" ]; then
-        sudo mv "$HOME/.local/bin/k9s" /usr/local/bin/k9s
-        echo "✅ k9s moved to /usr/local/bin"
-    fi
-
     # Verify installation
     if command_exists k9s; then
         echo "✅ k9s installed successfully: $(k9s version | head -n1)"
