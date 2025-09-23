@@ -64,9 +64,9 @@ else
 fi
 
 
-# ============================
+# ==========================
 # Install k9s
-# ============================
+# ==========================
 if command_exists k9s; then
     echo "✅ k9s is already installed: $(k9s version | head -n1)"
 else
